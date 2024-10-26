@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card class="task">
+    <mat-card-header class="header">
+      <img src="assets/checklist.png" alt="checklist" class="header-icon" />
+      <div class="header-text">
+        <mat-card-title class="title">Tasks Accomplished</mat-card-title>
+        <mat-card-subtitle class="subtitle">
+          Track your progress</mat-card-subtitle
+        >
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="content">
+        <app-counter-output></app-counter-output>
+        <app-counter-buttons></app-counter-buttons>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="task_state">
+    <mat-card-content>
+      <app-custom-counter-input></app-custom-counter-input>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CommonModule, RouterOutlet],
+  template: `
+    <div>
+      <h1>Hello, {{ title }}</h1>
+      <router-outlet></router-outlet>
+    </div>
+  `,
 })
 export class AppComponent {
-  title = 'Task-Buddy';
+  title = 'task-buddy-app';
 }

@@ -1,0 +1,75 @@
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [ngStyle]="{
+      'background-image': tile.image ? 'url(' + tile.image + ')' : 'none',
+      'background-color': tile.color ? tile.color : 'transparent',
+      'background-size': 'cover',
+      'background-position': 'center',
+      'background-repeat': 'no-repeat'
+    }"
+  >
+    <ng-container *ngIf="tile.template === 'templateOne'">
+      <mat-toolbar>
+        <h1>Let's get you ahead with Task-Buddy !</h1>
+      </mat-toolbar>
+    </ng-container>
+
+    <ng-container *ngIf="tile.template === 'templateTwo'">
+      <div class="carousel">
+        <div
+          class="slide"
+          *ngFor="let item of wallpapers; let i = index"
+          [ngStyle]="{
+            'background-size': 'cover',
+            'background-position': 'center',
+            'background-repeat': 'no-repeat',
+            'background-image': 'url(' + item.image + ')',
+            opacity: currentSlide === i ? 1 : 0
+          }"
+        >
+          <div class="quote">{{ item.quote }}</div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="tile.template === 'templateThree'">
+      <app-task-scheduler></app-task-scheduler>
+    </ng-container>
+
+    <ng-container *ngIf="tile.template === 'templateFour'">
+      <app-counter></app-counter>
+    </ng-container>
+
+    <ng-container *ngIf="tile.template === 'templateFive'">
+      <mat-card class="task_closure">
+        <mat-card-content>
+          <h2 class="result">Are we done for the day ...</h2>
+          <section class="result-section">
+            <mat-slide-toggle
+              class="done"
+              [checked]="checked"
+              [disabled]="disabled"
+            >
+              Wohhooo !
+            </mat-slide-toggle>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+
+    <ng-container
+      *ngIf="
+        ![
+          'templateOne',
+          'templateTwo',
+          'templateThree',
+          'templateFour',
+          'templateFive'
+        ].includes(tile.template)
+      "
+    ></ng-container>
+  </mat-grid-tile>
+</mat-grid-list>

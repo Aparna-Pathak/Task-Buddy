@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  .accomplishment-message {
+    color: #b393ab;
+    text-align: center;
+    flex: 0 1 auto;
+  }
+}

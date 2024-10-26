@@ -1,0 +1,138 @@
+$primary-color: #004d4d;
+$secondary-color: #fff6a6;
+$hover-color: rgba(21, 20, 20, 0.828);
+$header-color: #9b89ab;
+$highlight-color: #e6d5e7;
+
+.container_one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+}
+
+.scheduler {
+  @extend .card;
+
+  .header {
+    background-color: $header-color;
+    padding: 0.625rem;
+    display: flex;
+    align-items: center;
+
+    .header-icon {
+      width: 3.125rem;
+      height: 3.125rem;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-grow: 1;
+      padding-left: 0.625rem;
+    }
+
+    .title {
+      text-align: center;
+      color: $primary-color;
+    }
+
+    .subtitle {
+      color: $secondary-color;
+    }
+  }
+
+  .contents_scheduler {
+    .form-row {
+      display: flex;
+      gap: 0.625rem;
+      justify-content: space-between;
+
+      .description-field {
+        flex: 8;
+      }
+
+      .date-field {
+        flex: 4;
+      }
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.tasks {
+  @extend .card;
+  background-color: $highlight-color;
+
+  .contents_tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    max-height: 12.5rem;
+    overflow-y: auto;
+  }
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .input-container {
+    display: flex;
+    flex-grow: 1;
+    gap: 0.625rem;
+  }
+
+  .edit-input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 0.625rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .edit-button,
+    .delete-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .edit-button:hover,
+    .delete-button:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  .save-button {
+    display: inline;
+  }
+}

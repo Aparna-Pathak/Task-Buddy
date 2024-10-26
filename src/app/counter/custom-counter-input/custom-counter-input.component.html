@@ -1,0 +1,14 @@
+<div class="input-container">
+  <mat-form-field class="input">
+    <mat-label>Enter Value</mat-label>
+    <input matInput [(ngModel)]="value" />
+  </mat-form-field>
+  <button mat-flat-button class="add" (click)="onAdd()">Add to Counter</button>
+</div>
+
+<div class="state-container">
+  <div class="state">{{ stateName$ | async }}</div>
+  <button mat-flat-button class="change" (click)="onChangeStateName()">
+    Change State
+  </button>
+</div>

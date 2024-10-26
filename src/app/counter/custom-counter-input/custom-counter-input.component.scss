@@ -1,0 +1,53 @@
+$primary-color: #004d4d;
+$secondary-color: #fff6a6;
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+
+  .input {
+    flex-grow: 1;
+    min-width: 200px;
+  }
+
+  .add {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: $secondary-color;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.state-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .state {
+    flex-grow: 1;
+    min-width: 200px;
+    text-align: center;
+    color: $primary-color;
+    font-size: 1rem;
+  }
+
+  .change {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: $secondary-color;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

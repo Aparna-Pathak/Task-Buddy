@@ -1,0 +1,108 @@
+<div class="container_one">
+  <mat-card class="scheduler">
+    <mat-card-header class="header">
+      <img src="../../../assets/task.png" alt="Task Icon" class="header-icon" />
+      <div class="header-text">
+        <mat-card-title class="title">Task Scheduler</mat-card-title>
+        <mat-card-subtitle class="subtitle"
+          >Let's get started for the day</mat-card-subtitle
+        >
+      </div>
+    </mat-card-header>
+    <hr />
+    <mat-card-content class="contents_scheduler">
+      <div class="form-row">
+        <mat-form-field class="description-field">
+          <mat-label>What would you like to plan today ...</mat-label>
+          <input
+            matInput
+            [(ngModel)]="newTaskTitle"
+            placeholder="Enter task description"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="newTaskDate" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="addTask()">
+          Let's add it to the agenda!
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="tasks">
+    <mat-card-header>
+      <mat-card-title class="title">Agenda for the Week -</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="contents_tasks">
+      <mat-list>
+        <mat-divider></mat-divider>
+
+        <ng-container *ngFor="let task of tasks$ | async as tasks">
+          <mat-list-item class="task-item">
+            <ng-container
+              class="button-container"
+              *ngIf="
+                editingTask && editingTask.id === task.id;
+                else displayTask
+              "
+            >
+              <input
+                type="text"
+                [(ngModel)]="editingTask.title"
+                (keyup.enter)="saveTask()"
+                class="edit-input"
+                placeholder="Edit task title"
+              />
+              <button
+                mat-raised-button
+                aria-label="save"
+                (click)="saveTask()"
+                class="save-button"
+              >
+                Save
+              </button>
+            </ng-container>
+            <ng-template #displayTask>
+              <span class="task-text">
+                {{ task.title }} - {{ task.date | date : "dd.MM.yyyy" }}
+              </span>
+              <button
+                mat-raised-button
+                aria-label="edit"
+                color="primary"
+                (click)="editTask(task)"
+                class="edit-button"
+              >
+                Edit
+              </button>
+              <button
+                mat-raised-button
+                aria-label="delete"
+                color="warn"
+                (click)="deleteTask(task.id)"
+                class="delete-button"
+              >
+                Delete
+              </button>
+            </ng-template>
+          </mat-list-item>
+        </ng-container>
+
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
