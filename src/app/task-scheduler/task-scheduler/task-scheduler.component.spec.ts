@@ -69,8 +69,13 @@ describe('TaskSchedulerComponent', () => {
   it('should add a task', () => {
     const newTaskTitle = 'New Task';
     const newTaskDate = new Date();
+    const mockId = 1730014111340; // Mock ID
+
+    // Spy on Date.now() to return the mock ID
+    spyOn(Date, 'now').and.returnValue(mockId);
+
     const newTask: Task = {
-      id: Date.now(),
+      id: mockId,
       title: newTaskTitle,
       date: newTaskDate.toISOString(),
       isEditing: false,
