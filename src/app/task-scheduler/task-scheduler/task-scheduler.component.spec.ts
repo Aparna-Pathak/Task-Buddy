@@ -55,12 +55,10 @@ describe('TaskSchedulerComponent', () => {
       },
     ];
 
-    // Override the selector
     store.overrideSelector(selectAllTasks, tasks);
 
-    fixture.detectChanges(); // Trigger change detection
+    fixture.detectChanges();
 
-    // Subscribe to the observable and test if the tasks are fetched correctly
     component.tasks$.subscribe((data) => {
       expect(data).toEqual(tasks);
     });
@@ -69,9 +67,8 @@ describe('TaskSchedulerComponent', () => {
   it('should add a task', () => {
     const newTaskTitle = 'New Task';
     const newTaskDate = new Date();
-    const mockId = 1730014111340; // Mock ID
+    const mockId = 1730014111340;
 
-    // Spy on Date.now() to return the mock ID
     spyOn(Date, 'now').and.returnValue(mockId);
 
     const newTask: Task = {
@@ -84,12 +81,9 @@ describe('TaskSchedulerComponent', () => {
     component.newTaskTitle = newTaskTitle;
     component.newTaskDate = newTaskDate;
 
-    // Spy on store.dispatch
     spyOn(store, 'dispatch');
 
     component.addTask();
-
-    // Expect dispatch to have been called with the correct action
     expect(store.dispatch).toHaveBeenCalledWith(addTask({ task: newTask }));
   });
 
@@ -97,12 +91,10 @@ describe('TaskSchedulerComponent', () => {
     component.newTaskTitle = '';
     component.newTaskDate = new Date();
 
-    // Spy on store.dispatch
     spyOn(store, 'dispatch');
 
     component.addTask();
 
-    // Expect dispatch not to be called
     expect(store.dispatch).not.toHaveBeenCalled();
   });
 

@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterOutlet],
   template: `
     <div>
-      <h1>Hello, {{ title }}</h1>
       <router-outlet></router-outlet>
     </div>
   `,

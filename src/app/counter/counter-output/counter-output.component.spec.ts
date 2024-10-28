@@ -10,7 +10,6 @@ describe('CounterOutputComponent', () => {
   let fixture: ComponentFixture<CounterOutputComponent>;
   let store: MockStore;
 
-  // Initial state of the counter
   const initialState = {
     counter: {
       counter: 5,

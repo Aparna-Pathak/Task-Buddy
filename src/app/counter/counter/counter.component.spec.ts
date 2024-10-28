@@ -3,7 +3,6 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { CounterComponent } from './counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Define the initial state of your store
 const initialState = { count: 0 };
 
 describe('CounterComponent', () => {

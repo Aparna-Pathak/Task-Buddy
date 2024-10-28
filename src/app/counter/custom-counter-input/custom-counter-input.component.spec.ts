@@ -28,18 +28,15 @@ describe('CustomCounterInputComponent', () => {
         MatButtonModule,
         MatInputModule,
         BrowserAnimationsModule,
-        CustomCounterInputComponent, // Include the standalone component
+        CustomCounterInputComponent,
       ],
-      providers: [
-        provideMockStore({ initialState }), // Provide the mock store with the initial state
-      ],
+      providers: [provideMockStore({ initialState })],
     }).compileComponents();
 
     store = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(CustomCounterInputComponent);
     component = fixture.componentInstance;
 
-    // Mock the selector for the stateName
     store.overrideSelector(getStateName, 'Default State');
     fixture.detectChanges();
   });
