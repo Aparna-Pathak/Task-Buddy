@@ -53,18 +53,9 @@
     "typescript": "~5.5.2",
     "typescript-eslint": "^8.11.0"
   },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.html": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
-    ]
-  }
+"lint-staged": {
+  "*.ts": "eslint --fix",
+  "*.html": "prettier --write",
+  "*.scss": "stylelint --fix"
+}
 }
