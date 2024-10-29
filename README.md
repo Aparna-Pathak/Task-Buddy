@@ -16,11 +16,19 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).The unit test cases have been written in the spec files for the specific components.
 
-## Running end-to-end tests
+## Running linting
+ 
+Run `npm run lint` to execute the linting tests as per the eslint-config-airbnb.The linting configurations have been defined in the eslint.config.mjs file.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Running Application
+
+Run 'ng serve' to serve the application.
+
+## Running pre-commit-hooks
+
+To achieve this,Husky and lint-staged have been used to set up Git hooks. Husky allows you to set up Git hooks in your project, and lint-staged helps run linters only on staged files, improving performance. While adding the code changes, while comitting the code, the pre commit hooks will lint the files and give you the errors in case there are any. Post the successful completion, the code can be pushed to the repository.
 
 ## Further help
 
