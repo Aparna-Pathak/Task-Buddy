@@ -1,4 +1,3 @@
-// eslint.mjs
 import tsEslintParser from "@typescript-eslint/parser";
 import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
@@ -25,8 +24,8 @@ export default [
       },
       parser: tsEslintParser,
       parserOptions: {
-        project: "./tsconfig.json", // Check the path
-        tsconfigRootDir: "./", // If tsconfig.json is in the root
+        project: "./tsconfig.json",
+        tsconfigRootDir: "./",
       },
     },
     plugins: {
@@ -62,7 +61,7 @@ export default [
       "@angular-eslint/template/element-selectors": [
         "error",
         {
-          selector: "app-", // component prefixes
+          selector: "app-",
         },
       ],
       "@angular-eslint/template/use-track-by-function": "warn",

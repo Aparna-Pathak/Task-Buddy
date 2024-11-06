@@ -54,14 +54,14 @@ describe('CustomCounterInputComponent', () => {
 
   it('should dispatch customIncrement action when onAdd is called', () => {
     const dispatchSpy = spyOn(store, 'dispatch');
-    component.value = 5; // Set a value for testing
-    component.onAdd(); // Call the method to trigger the action
-    expect(dispatchSpy).toHaveBeenCalledWith(customIncrement({ count: 5 })); // Assert that the action was dispatched correctly
+    component.value = 5;
+    component.onAdd();
+    expect(dispatchSpy).toHaveBeenCalledWith(customIncrement({ count: 5 }));
   });
 
   it('should dispatch changeStateName action when onChangeStateName is called', () => {
     const dispatchSpy = spyOn(store, 'dispatch');
-    component.onChangeStateName(); // Call the method to trigger the action
-    expect(dispatchSpy).toHaveBeenCalledWith(changeStateName()); // Assert that the action was dispatched correctly
+    component.onChangeStateName();
+    expect(dispatchSpy).toHaveBeenCalledWith(changeStateName());
   });
 });

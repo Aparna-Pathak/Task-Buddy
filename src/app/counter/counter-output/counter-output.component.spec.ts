@@ -22,15 +22,12 @@ describe('CounterOutputComponent', () => {
       providers: [provideMockStore({ initialState })],
     }).compileComponents();
 
-    // Create component and mock store
     store = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(CounterOutputComponent);
     component = fixture.componentInstance;
 
-    // Override the selector with the initial state
     store.overrideSelector(getCounter, initialState.counter.counter);
 
-    // Subscribe to the counter$ observable
     component.counter$ = store.select(getCounter);
 
     fixture.detectChanges();
